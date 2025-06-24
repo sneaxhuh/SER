@@ -19,16 +19,65 @@ This results in a consistent input shape of **(1, 1, 184, 40)** for each file.
 
 ## 🧠 Model Pipeline
 
-The model architecture is a CRNN:
-- **CNN layers** extract time-frequency spatial features
-- **Bi-LSTM layers** model temporal dependencies
-- **Fully connected layer** classifies into one of 8 emotions
+## 🧠 Model Pipeline
 
-The model was trained using the **RAVDESS** dataset, covering the following classes:
-
-- `angry`, `calm`, `disgust`, `fearful`, `happy`, `neutral`, `sad`, `surprised`
+This project implements a **Speech Emotion Recognition (SER)** system using a **Convolutional Recurrent Neural Network (CRNN)**, designed to classify human speech into one of 8 emotional states.
 
 ---
+
+### 🔧 Architecture Overview
+
+The model follows a **CRNN pipeline**:
+
+1. **CNN Feature Extractor**:
+   - 4 convolutional blocks (Conv2D → BatchNorm → ReLU → MaxPooling)
+   - Captures spatial features from the MFCC time-frequency representation.
+
+2. **Bi-directional LSTM**:
+   - Input: Flattened output from the CNN (time steps preserved)
+   - Captures long-range temporal dependencies in speech.
+
+3. **Fully Connected Layer**:
+   - Output: Softmax probabilities for each emotion class.
+
+---
+
+### 📈 Input Features
+
+- **MFCCs (Mel-Frequency Cepstral Coefficients)** extracted using `librosa`
+- Sampling Rate: `16,000 Hz`
+- FFT window size: `512`
+- Hop length: `256`
+- MFCC Coefficients: `40`
+- Fixed segment duration: `3 seconds` (from 0.5s to 3.5s)
+- Normalization: Z-score
+- Input shape to model: `(1, 1, 184, 40)` → `(batch, channel, time, mfcc)`
+
+---
+
+### 🎭 Emotion Classes
+
+The model is trained to detect the following 8 emotions:
+
+- `angry`
+- `calm`
+- `disgust`
+- `fearful`
+- `happy`
+- `neutral`
+- `sad`
+- `surprised`
+
+---
+
+### 🧪 Training Details
+
+- **Dataset**: [RAVDESS](https://zenodo.org/record/1188976) (Ryerson Audio-Visual Database of Emotional Speech and Song)
+- **Model file**: `crnn.pth`
+- **Loss Function**: CrossEntropyLoss
+- **Optimizer**: Adam
+- **Epochs**: 30
+- **Batch Size**: 32
 
 ## 📊 Evaluation
 
