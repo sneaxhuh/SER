@@ -44,8 +44,10 @@ The model was trained using the **RAVDESS** dataset, covering the following clas
 | Neutral    | 0.756     | 0.872  | 0.810    | 39.0    |
 | Sad        | 0.848     | 0.882  | 0.865    | 76.0    |
 | Surprised  | 0.829     | 0.872  | 0.850    | 39.0    |
-| **Macro Avg** | **0.840** | **0.850** | **0.842** |         |
-| **Weighted Avg** | **0.842** | **0.844** | **0.843** |         |
+
+Overall F1 Scores:
+Macro  F1-score:    **0.8423**
+Weighted F1-score: **0.8436**
 
 
 ---
