@@ -78,6 +78,7 @@ The model is trained to detect the following 8 emotions:
 - **Optimizer**: Adam
 - **Epochs**: 30
 - **Batch Size**: 32
+- **Data Split**: 80-20 stratified split was done per emotion, separately for speech and song subsets.
 
 ## 📊 Evaluation
 
