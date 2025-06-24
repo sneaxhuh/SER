@@ -5,3 +5,4 @@ numpy
 librosa
 streamlit
 tqdm
+matplotlib
