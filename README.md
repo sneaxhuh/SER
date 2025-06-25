@@ -19,8 +19,6 @@ This results in a consistent input shape of **(1, 1, 184, 40)** for each file.
 
 ## 🧠 Model Pipeline
 
-## 🧠 Model Pipeline
-
 This project implements a **Speech Emotion Recognition (SER)** system using a **Convolutional Recurrent Neural Network (CRNN)**, designed to classify human speech into one of 8 emotional states.
 
 ---
